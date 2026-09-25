@@ -228,8 +228,8 @@ class Agent:
 
 
 """
-This is the code I could write without AI. It's worse, but the implementation is simpler 
-and I actually understand what's going on.
+This is the code I could write without AI. It's worse,
+but the implementation is simpler and I actually understand what's going on.
 """
 
 # """
@@ -303,8 +303,10 @@ and I actually understand what's going on.
 #       if self.offlimits[neighbor_y * 120 + neighbor_x] == "#": continue #If it's a wall/buffer, skip it
 #       if dx != 0 and dy != 0:#it's a diagonal move (since one of dx/dy is 0 for a cardinal move)
 #         if self.offlimits[y * 120 + (x + dx)] == "#" or self.offlimits[(y + dy) * 120 + x] == "#":#This is that corner cutting rule from the readme.
-#                                                                                                   #The 2 cells in this conditional are the ones neighboring it.
-#                                                                                                   #If either of these are blocked, then the robot can't fit through there
+#                                                                                                   #The 2 cells in this conditional are the ones
+#                                                                                                   #neighboring it. If either of these
+#                                                                                                   #are blocked, then the robot
+#                                                                                                   #can't fit through there
 #           continue
 #       result.append((neighbor_x, neighbor_y))
 #     return result
@@ -346,7 +348,7 @@ and I actually understand what's going on.
 #     for r in range(1, 121): #Grow the search ring outward. 120 because that's the width of the arena
 #       for dx in range(-r, r + 1):
 #         for dy in range(-r, r + 1):
-#           if max(abs(dx), abs(dy)) != r: 
+#           if max(abs(dx), abs(dy)) != r:
 #             continue   #We're only looking at the outer edge of the ring (we already checker the inner ones before)
 #           nx, ny = x0 + dx, y0 + dy
 #           if 0 <= nx < 120 and 0 <= ny < 80 and self.offlimits[ny * 120 + nx] != "#":#If it's in bounds and not a wall
@@ -379,11 +381,13 @@ and I actually understand what's going on.
 #     #Move using that path
 #     if path:
 #       target_cell_x, target_cell_y = path[1]#The coords in metres of the cell we wanna go to
-#       target_x = target_cell_x * self.cfg["resolution"] + self.cfg["resolution"] / 2 #Convert back to m (the + part is to get the centre of the cell)
+#       target_x = target_cell_x * self.cfg["resolution"] + self.cfg["resolution"] / 2 #Convert back to m (the + part is to get the
+#                                                                                       centre of the cell)
 #       target_y = target_cell_y * self.cfg["resolution"] + self.cfg["resolution"] / 2
 #       distance_x, distance_y = target_x - pose[0], target_y - pose[1]  # How far we are from that goal in both dimensions
 #       dist = math.hypot(distance_x, distance_y)            # Straight-line distance from goal
-#       vx = distance_x / dist * 2.0  #(distance_x/dist) is the fraction of the trip in the x dir (between -1, needing to go left, and 1, going right.)
+#       vx = distance_x / dist * 2.0  #(distance_x/dist) is the fraction of the trip in the x dir (between -1,
+#                                     needing to go left, and 1, going right.)
 #                                     #Then multiply by 2 (max speed). Essentially this is making a unit vector, then saying we wanna go top speed.
 #       vy = distance_y / dist * 2.0
 #     else:
